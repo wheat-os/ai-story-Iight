@@ -23,25 +23,24 @@ Token。
 ### 软件架构
 ![软件架构图](.images/架构图.png)
 1. Seqmodel
-Sequence Model with Self-Adaztive Sliding Window for Efficient Spoken DocumentSegmentation
+- Sequence Model with Self-Adaztive Sliding Window for Efficient Spoken DocumentSegmentation
 自动预测口语文档的段落分割可以同时提高可读性和下游 NLP 性能，如摘要和机器阅读理解。我们
 提出了一种具有自适应滑动窗口的序列模型，用于准确高效的段落分割。
-• SeqModel利用BERT对多个句子同时编码，建模了更长的上下文之间依赖关系之后再计算句向量，最后预测每个句子后边是否进行文本分割
-• 此外，该模型还使用了自适应滑动窗口方法，在在不牺牲准确性的情况下进一步加快推理速度
-• https://arxiv.org/bas/2107.09278
+- SeqModel利用BERT对多个句子同时编码，建模了更长的上下文之间依赖关系之后再计算句向量，最后预测每个句子后边是否进行文本分割
+- 此外，该模型还使用了自适应滑动窗口方法，在在不牺牲准确性的情况下进一步加快推理速度
+- https://arxiv.org/bas/2107.09278
 
 2. guardrails
-Guardrails 是一个 Python 框架，通过执行两个关键功能帮助构建可靠的 AI 应用程序：
-• 使用 Guardrails 从LLMs生成结构化数据
-•创建输入和输出防护措施以验证LLM
-• https://github.com/guardrails-ai/guardrails
+Guardrails 是一个 Python 框架，通过执行两个关键功能帮助构建可靠的 AI 应用程序
+- 使用 Guardrails 从LLMs生成结构化数据创建输入和输出防护措施以验证LLM 
+- https://github.com/guardrails-ai/guardrails
 
 3. pos.model
 哈工大开源的中文词性分析模型，用于地区，人名、地名
 
 4. 逻辑打破
 打断 AI 的逻辑链条重新推理，是否可以推理出一致的结果
-• 基于 Guardrails 的结构化限制，打断 AI 的逻辑链尝试重新推理是否可以得到原来的结果
+- 基于 Guardrails 的结构化限制，打断 AI 的逻辑链尝试重新推理是否可以得到原来的结果
 
 ### 标准化时间线
 > 特征工程阶段总结来说就是从文本中把非结构化的数据转换结构化的数据，并以标签的格式处理在各个文本段落上，从而为构建结构化知识图谱提供有效数据基础。
